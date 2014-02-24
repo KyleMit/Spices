@@ -1,0 +1,64 @@
+﻿/* =================== PAGE ========================*/
+body {
+    background-image: url("../Images/witewall_3.png");
+    position: relative;
+}
+hr {
+    background-color: #444;
+    height: 2px;
+    page-break-after: always;
+    text-align: center;
+    width: 95%;
+}
+.category {
+    padding: 10px;
+}
+.smallHeader {
+    margin-top: 0;
+}
+
+/* ================= UTILITY CLASSES ======================*/
+.bold {
+    font-weight: bold;
+}
+.v_middle {
+    vertical-align: middle;
+}
+.h_center {
+    text-align: center;
+}
+.justify {
+    text-align: justify;
+}
+.clear {
+    clear: both;
+}
+/* ================= MEDIA QUERIES ======================*/
+/* Large desktop */
+@media (min-width: 1200px) {
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 800px) {
+
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+
+}
+/* ================= COLORS ======================*/
+.Asian    { background: #7030A0; }
+.Baking   { background: #FFD700; }
+.Bases    { background: #FFD700; }
+.Autumnal { background: #C45911; }
+.Herbs    { background: #538135; }
+.Mixes    { background: #2F5496; }
+.Pepper   { background: #595959; }
+.Salts    { background: #D9D9D9; }
+.Spices   { background: #990000; }

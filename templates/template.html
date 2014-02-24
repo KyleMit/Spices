@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <!-- Spice Template -->
+    <script id="spice-listing" type="text/x-handlebars-template">
+        {{#categories}}
+        <div class="{{name}} category" id="{{name}}">
+            <h2 class="smallHeader">{{name}}</h2>
+        
+            {{#spices}}
+            <div class="well spice" id="{{ID}}">
+                <h3 class="smallHeader">{{Name}}</h3>  
+                {{#if Image}}
+                    <img src="{{Image}}" alt="Spice" />
+                {{/if}}
+                <p>
+                    {{#if Brand}}
+                        {{#if Link }}
+                            <label>Brand</label>: 
+                            <a href="{{Link}}">{{Brand}}</a> <br/>
+                        {{else}}
+                            <label>Brand</label>: {{Brand}} <br/>
+                        {{/if}}
+
+                    {{/if}}
+
+                    {{#if PurchasedDate}}
+                    <label>Purchase Date</label>: {{PurchasedDate}}<br/>
+                    {{/if}}
+
+                    {{#if Price}}
+                    <label>Price</label>: {{Price}}<br/>
+                    {{/if}}
+
+                    {{#if Ingredients}}
+                    <label>Ingredients</label>: {{Ingredients}}<br/>
+                    {{/if}}
+
+                    {{#if Description}}
+                    {{! Allow HTML to Be Rendered}}
+                    <label>Description</label>: {{{Description}}}<br/>
+                    {{/if}}
+                </p>
+            </div>
+            {{/spices}}
+            <br/>
+        </div>
+        {{/categories}}
+    </script>
+    
+    <!-- Nav Template -->
+    <script id="nav-listing" type="text/x-handlebars-template">
+        <ul>
+        {{#categories}}
+            <li><a href="#{{name}}">{{name}}</a></li>
+            <ul>
+            {{#spices}}
+                <li><a href="#{{ID}}">{{Name}}</a></li>
+            {{/spices}}
+            </ul>
+        {{/categories}}
+        </ul>
+    </script>
+</body>
+</html>
