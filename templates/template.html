@@ -53,14 +53,17 @@
     
     <!-- Nav Template -->
     <script id="nav-listing" type="text/x-handlebars-template">
-        <ul>
+        <!-- Nav Bar Links -->
+        <ul id="sidebar" class="nav nav-stacked fixed ">
         {{#categories}}
-            <li><a href="#{{name}}">{{name}}</a></li>
-            <ul>
-            {{#spices}}
-                <li><a href="#{{ID}}">{{Name}}</a></li>
-            {{/spices}}
-            </ul>
+            <li>
+                <a href="#{{name}}">{{name}}</a>
+                <ul class="nav nav-stacked">
+                {{#spices}}
+                    <li><a href="#{{ID}}">{{Name}}</a></li>
+                {{/spices}}
+                </ul>
+            </li>
         {{/categories}}
         </ul>
     </script>
