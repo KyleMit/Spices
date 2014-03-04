@@ -136,7 +136,10 @@
     }
 
     function goToCurrentAnchor() {
-        scrollToElement(window.location.hash);
+        //wait until page is rendered to scroll to location
+        setTimeout(function () {
+            scrollToElement(window.location.hash);
+        }, 100);
     }
 
     function navigateToElement(pageLink) {
