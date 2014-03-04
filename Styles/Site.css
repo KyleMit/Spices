@@ -140,17 +140,25 @@ img.thumb {
 .bs-docs-sidebar .nav>.active>ul.nav {
     display: block;           
 }
-
-
+/* ============ IMAGES ===============*/
 img.thumb {
-    -webkit-transition: all .5s ease;
-    -moz-transition: all .5s ease;
-    -o-transition: all .5s ease;
-    -ms-transition: all .5s ease;
-    transition: all .5s ease;
+    width: 100px;
+    height: 100px;
+    float: right;
+    border: 2px solid #565858;
+
+    -ms-border-radius: 4px;
+        border-radius: 4px;
+
+         -o-transition: all .5s ease; /* Opera */
+        -ms-transition: all .5s ease; /* IE 9 */
+       -moz-transition: all .5s ease; /* Firefox */
+    -webkit-transition: all .5s ease; /* Safari and Chrome */
+            transition: all .5s ease;
 }
 
-img.thumb:hover {
+img.thumb:hover,
+img.thumb:focus {
          -o-transform:scale(2.5); /* Opera */
         -ms-transform:scale(2.5); /* IE 9 */
        -moz-transform:scale(2.5); /* Firefox */
