@@ -81,7 +81,7 @@
     }
 
     function applyTemplate(context, templateID, targetID) {
-        var template = getTemplate("Templates\\template.html", templateID);
+        var template = getTemplate("templates\\template.html", templateID);
         var output = template(context);
         $(targetID).append(output);
     }
