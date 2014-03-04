@@ -11,13 +11,7 @@ body {
 .content > div {
     float: left;
 }
-img.thumb {
-    width: 100px;
-    height: 100px;
-    float: right;
-    border: 2px solid #565858;
-    border-radius: 4px;
-}
+
 /* ============ UTILITY CLASSES ===============*/
 .bold {
     font-weight: bold;
@@ -37,6 +31,7 @@ img.thumb {
 .fixed {
     position: fixed;
 }
+
 /* ============= MEDIA QUERIES =================*/
 /* Big Size */
 @media (min-width: 551px) {
@@ -66,7 +61,6 @@ img.thumb {
     }
 }
 
-
 /* ================ COLORS ============++=========*/
 .Asian    { background: #7030A0; }
 .Baking   { background: #FFD700; }
@@ -79,7 +73,6 @@ img.thumb {
 .Spices   { background: #990000; }
 
 /* ============= SIDE NAV BAR ====================*/
-
 /* sidebar */
 .bs-docs-sidebar {
     padding-left: 20px;
@@ -140,6 +133,7 @@ img.thumb {
 .bs-docs-sidebar .nav>.active>ul.nav {
     display: block;           
 }
+
 /* ============ IMAGES ===============*/
 img.thumb {
     width: 100px;
@@ -159,12 +153,13 @@ img.thumb {
 
 img.thumb:hover,
 img.thumb:focus {
+    /* Enlarge */
          -o-transform:scale(2.5); /* Opera */
         -ms-transform:scale(2.5); /* IE 9 */
        -moz-transform:scale(2.5); /* Firefox */
     -webkit-transform:scale(2.5); /* Safari and Chrome */
             transform:scale(2.5);
-
+    /* Open to bottom left */
          -o-transform-origin:100% 0; /* Opera */
         -ms-transform-origin:100% 0; /* IE 9 */
        -moz-transform-origin:100% 0; /* Firefox */
