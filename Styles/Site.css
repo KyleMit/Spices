@@ -11,8 +11,12 @@ body {
 .content > div {
     float: left;
 }
-#SideNavPlaceholder {
-    width: 200px;
+img.thumb {
+    width: 100px;
+    height: 100px;
+    float: right;
+    border: 2px solid #565858;
+    border-radius: 4px;
 }
 /* ============ UTILITY CLASSES ===============*/
 .bold {
@@ -135,4 +139,27 @@ body {
 /* show active nested list */
 .bs-docs-sidebar .nav>.active>ul.nav {
     display: block;           
+}
+
+
+img.thumb {
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    transition: all .5s ease;
+}
+
+img.thumb:hover {
+         -o-transform:scale(2.5); /* Opera */
+        -ms-transform:scale(2.5); /* IE 9 */
+       -moz-transform:scale(2.5); /* Firefox */
+    -webkit-transform:scale(2.5); /* Safari and Chrome */
+            transform:scale(2.5);
+
+         -o-transform-origin:100% 0; /* Opera */
+        -ms-transform-origin:100% 0; /* IE 9 */
+       -moz-transform-origin:100% 0; /* Firefox */
+    -webkit-transform-origin:100% 0; /* Safari and Chrome */
+            transform-origin:100% 0;
 }

@@ -13,10 +13,10 @@
             {{#spices}}
             <div class="spice" id="{{ID}}">
                 <div class="well">
-                    <h3 class="smallHeader">{{Name}}</h3>  
                     {{#if Image}}
-                        <img src="{{Image}}" alt="Spice" />
+                        <img src="{{Image}}" class="thumb" alt="Spice" />
                     {{/if}}
+                    <h3 class="smallHeader">{{Name}}</h3>  
                     <p>
                         {{#if Brand}}
                             {{#if Link }}
