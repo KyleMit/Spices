@@ -1,14 +1,6 @@
-﻿/* =================== PAGE ========================*/
+﻿/* ================= PAGE ====================*/
 body {
-    background-image: url("../Images/witewall_3.png");
-    position: relative;
-}
-hr {
-    background-color: #444;
-    height: 2px;
-    page-break-after: always;
-    text-align: center;
-    width: 95%;
+    background: #F5F5F5;
 }
 .category {
     padding: 10px;
@@ -16,8 +8,13 @@ hr {
 .smallHeader {
     margin-top: 0;
 }
-
-/* ================= UTILITY CLASSES ======================*/
+.content > div {
+    float: left;
+}
+#SideNavPlaceholder {
+    width: 200px;
+}
+/* ============ UTILITY CLASSES ===============*/
 .bold {
     font-weight: bold;
 }
@@ -36,26 +33,37 @@ hr {
 .fixed {
     position: fixed;
 }
-/* ================= MEDIA QUERIES ======================*/
-/* Large desktop */
-@media (min-width: 1200px) {
+/* ============= MEDIA QUERIES =================*/
+/* Big Size */
+@media (min-width: 551px) {
+    #SideNavBarPlaceholder {
+        float: left;
+        width: 200px;
+    }
+    #SpiceContentPlaceholder {
+        margin-left: 200px;
+    }
+    #TopNavBarPlaceholder {
+        display: none;
+    }
 }
 
-/* Portrait tablet to landscape and desktop */
-@media (min-width: 768px) and (max-width: 800px) {
-
+/* Small Size */
+@media (max-width: 550px) {
+    .spice {
+        padding-top: 60px;
+        margin-top: -60px;
+    }
+    #SpiceContentPlaceholder {
+        padding-top: 60px;
+    }
+    #SideNavBarPlaceholder {
+        display: none;
+    }
 }
 
-/* Landscape phone to portrait tablet */
-@media (max-width: 767px) {
 
-}
-
-/* Landscape phones and down */
-@media (max-width: 480px) {
-
-}
-/* ================= COLORS ======================*/
+/* ================ COLORS ============++=========*/
 .Asian    { background: #7030A0; }
 .Baking   { background: #FFD700; }
 .Bases    { background: #FFD700; }
@@ -66,13 +74,19 @@ hr {
 .Salts    { background: #D9D9D9; }
 .Spices   { background: #990000; }
 
-/* ================= NavBar ======================*/
+/* ============= SIDE NAV BAR ====================*/
 
 /* sidebar */
 .bs-docs-sidebar {
     padding-left: 20px;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.bs-docs-sidebar > ul{
+    width: 180px;
+    overflow-y: auto;
+    height: 100%;
 }
 
 /* all links */

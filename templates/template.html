@@ -1,49 +1,51 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title></title>
+    <title>Templates</title>
 </head>
 <body>
-    <!-- Spice Template -->
-    <script id="spice-listing" type="text/x-handlebars-template">
+    <!-- Spice Content Template -->
+    <script id="SpiceContentTemplate" type="text/x-handlebars-template">
         {{#categories}}
         <div class="{{name}} category" id="{{name}}">
             <h2 class="smallHeader">{{name}}</h2>
         
             {{#spices}}
-            <div class="well spice" id="{{ID}}">
-                <h3 class="smallHeader">{{Name}}</h3>  
-                {{#if Image}}
-                    <img src="{{Image}}" alt="Spice" />
-                {{/if}}
-                <p>
-                    {{#if Brand}}
-                        {{#if Link }}
-                            <label>Brand</label>: 
-                            <a href="{{Link}}">{{Brand}}</a> <br/>
-                        {{else}}
-                            <label>Brand</label>: {{Brand}} <br/>
+            <div class="spice" id="{{ID}}">
+                <div class="well">
+                    <h3 class="smallHeader">{{Name}}</h3>  
+                    {{#if Image}}
+                        <img src="{{Image}}" alt="Spice" />
+                    {{/if}}
+                    <p>
+                        {{#if Brand}}
+                            {{#if Link }}
+                                <label>Brand</label>: 
+                                <a href="{{Link}}">{{Brand}}</a> <br/>
+                            {{else}}
+                                <label>Brand</label>: {{Brand}} <br/>
+                            {{/if}}
+
                         {{/if}}
 
-                    {{/if}}
+                        {{#if PurchasedDate}}
+                        <label>Purchase Date</label>: {{PurchasedDate}}<br/>
+                        {{/if}}
 
-                    {{#if PurchasedDate}}
-                    <label>Purchase Date</label>: {{PurchasedDate}}<br/>
-                    {{/if}}
+                        {{#if Price}}
+                        <label>Price</label>: {{Price}}<br/>
+                        {{/if}}
 
-                    {{#if Price}}
-                    <label>Price</label>: {{Price}}<br/>
-                    {{/if}}
+                        {{#if Ingredients}}
+                        <label>Ingredients</label>: {{Ingredients}}<br/>
+                        {{/if}}
 
-                    {{#if Ingredients}}
-                    <label>Ingredients</label>: {{Ingredients}}<br/>
-                    {{/if}}
-
-                    {{#if Description}}
-                    {{! Allow HTML to Be Rendered}}
-                    <label>Description</label>: {{{Description}}}<br/>
-                    {{/if}}
-                </p>
+                        {{#if Description}}
+                        {{! Allow HTML to Be Rendered}}
+                        <label>Description</label>: {{{Description}}}<br/>
+                        {{/if}}
+                    </p>
+                </div>
             </div>
             {{/spices}}
             <br/>
@@ -51,21 +53,70 @@
         {{/categories}}
     </script>
     
-    <!-- Nav Template -->
-    <script id="nav-listing" type="text/x-handlebars-template">
-        <!-- Nav Bar Links -->
-        <ul id="sidebar" class="nav nav-stacked fixed ">
-        {{#categories}}
-            <li>
-                <a href="#{{name}}">{{name}}</a>
-                <ul class="nav nav-stacked">
-                {{#spices}}
-                    <li><a href="#{{ID}}">{{Name}}</a></li>
-                {{/spices}}
-                </ul>
-            </li>
-        {{/categories}}
-        </ul>
+    
+
+    <!-- Side Nav Bar Template -->
+    <script id="SideNavBarTemplate" type="text/x-handlebars-template">
+        <div class="bs-docs-sidebar">
+            <ul id="sidebar" class="nav nav-stacked fixed ">
+            {{#categories}}
+                <li>
+                    <a href="#{{name}}">{{name}}</a>
+                    <ul class="nav nav-stacked">
+                    {{#spices}}
+                        <li><a href="#{{ID}}">{{Name}}</a></li>
+                    {{/spices}}
+                    </ul>
+                </li>
+            {{/categories}}
+            </ul>
+        </div>
+    </script>
+    
+    
+
+    <!-- Top Nav Bar Template -->
+    <script id="TopNavBarTemplate" type="text/x-handlebars-template">
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <!-- Nav Bar Header -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" 
+                            data-toggle="collapse" 
+                            data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button> 
+                    <a class="navbar-brand" href="#">Kyle's Spices</a>
+
+                </div>
+                
+                <!-- Parent Menu -->
+                <div class="collapse navbar-collapse parentMenu">
+                    <ul class="nav navbar-nav">
+                    {{#categories}}
+                        <li><a data-toggle="collapse" 
+                                data-target="#nav-{{name}}">
+                            {{name}}
+                        </a></li>
+                    {{/categories}}
+                    </ul>
+                </div>
+                
+                <!-- Child Menus -->
+                {{#categories}}
+                    <div id="nav-{{name}}" class="collapse childMenu">
+                        <ul class="nav navbar-nav">
+                            {{#spices}}
+                                <li><a href="#{{ID}}">{{Name}}</a></li>
+                            {{/spices}}
+                        </ul>
+                    </div>
+                {{/categories}}
+                
+            </div>
+        </div>
     </script>
 </body>
 </html>
