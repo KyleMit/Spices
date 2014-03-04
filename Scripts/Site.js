@@ -1,4 +1,4 @@
-﻿/*globals window,$*/
+﻿/*globals window,$,Enumerable,Handlebars*/
 
 (function () {
     "use strict";
@@ -32,44 +32,37 @@
     }
 
     function convertData(originalData) {
-        var spices = [];
         var context = new Object;
 
-        $.each(originalData.feed.entry, function (index, value) {
-            var spice = new Object;
-
-            spice.Name = value.gsx$name.$t;
-            spice.Category = value.gsx$category.$t;
-            spice.ID = value.gsx$id.$t;
-            spice.Image = value.gsx$imageurl.$t;
-            spice.Brand = value.gsx$brand.$t;
-            spice.PurchasedDate = value.gsx$purchaseddate.$t;
-            spice.Price = value.gsx$price.$t;
-            spice.Ingredients = value.gsx$ingredients.$t;
-            spice.Description = value.gsx$description.$t;
-            spice.Link = value.gsx$link.$t;
-
-            //if doesn't already have cateogy
-            //create new category
-            if (!(spice.Category in spices)) {
-                var container = new Object;
-                container.name = spice.Category;
-                container.spices = [];
-                spices[spice.Category] = container;
-            }
-
-            spices[spice.Category].spices.push(spice);
-        });
-
-        //converted named properties to anonymous array
-        var spiceArray = [];
-        for (var property in spices) {
-            if (spices.hasOwnProperty(property)) {
-                spiceArray.push(spices[property]);
-            }
-        }
-
-        context.categories = spiceArray;
+        var grouped = Enumerable.From(originalData.feed.entry)
+                    .OrderBy("$.gsx$categorysort.$t")
+                    .ThenBy("$.gsx$name.$t")
+                    .GroupBy(function (value) {       // Key selector
+                            return value.gsx$category.$t;;
+                        },
+                        function (value) {                // Element selector
+                            return {
+                                Name : value.gsx$name.$t,
+                                Category : value.gsx$category.$t,
+                                ID : value.gsx$id.$t,
+                                Image : value.gsx$imageurl.$t,
+                                Brand : value.gsx$brand.$t,
+                                PurchasedDate : value.gsx$purchaseddate.$t,
+                                Price : value.gsx$price.$t,
+                                Ingredients : value.gsx$ingredients.$t,
+                                Description : value.gsx$description.$t,
+                                Link : value.gsx$link.$t
+                            };
+                        },
+                        function (key, grouping) {         // Result selector
+                            return {
+                                name: key,
+                                spices: grouping.source
+                            };
+                        })
+                    .ToArray();
+        
+        context.categories = grouped;
 
         return context;
     }
