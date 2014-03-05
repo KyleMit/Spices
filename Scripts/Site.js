@@ -131,21 +131,21 @@
     function addSmoothScrollingToAnchors() {
         // when menu item clicked
         $("a[href^='#']").click(function () {
+            // get href attribute
+            var idSelector = $(pageLink).attr('href');
             // scroll to position
-            navigateToElement(this);
+            navigateToElement(idSelector);
         });
     }
 
     function goToCurrentAnchor() {
         //wait until page is rendered to scroll to location
         setTimeout(function () {
-            scrollToElement(window.location.hash);
+            navigateToElement(window.location.hash);
         }, 100);
     }
 
-    function navigateToElement(pageLink) {
-        // get href attribute
-        var idSelector = $(pageLink).attr('href');
+    function navigateToElement(idSelector) {
         // make sure we have a valid id
         if ($(idSelector).length > 0) {
             // scroll down page
