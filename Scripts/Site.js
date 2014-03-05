@@ -3,9 +3,19 @@
 (function () {
     "use strict";
     $(function () {
-        initializePage();
+        tryInitializePage();
     });
-    
+
+    function tryInitializePage() {
+        try {
+            initializePage();
+            
+        } catch (ex) {
+            //notifyUserOfProblem
+            document.getElementById('loading').style.display = 'none';
+            alert('An error occured while loading data from Google.');
+        } 
+    }
 
     function initializePage() {
         var key = "0Ai98c4sbCLFEdHRTLWY3UEtTUzUwTVhveGN2bTJicHc";
@@ -13,9 +23,20 @@
                   "?alt=json&duration=0&noStore=true&callback=?";
 
         $.getJSON(url, function (data) {
-            createPage(data);
+            tryCreatePage(data);
         });
 
+    }
+    
+    function tryCreatePage(data) {
+        try {
+            createPage(data);
+
+        } catch (ex) {
+            //notifyUserOfProblem
+            document.getElementById('loading').style.display = 'none';
+            alert('An error occured while creating the page.');
+        }
     }
 
     function createPage(data) {
@@ -38,7 +59,7 @@
         var grouped = Enumerable.From(originalData.feed.entry)
                     .OrderBy("$.gsx$categorysort.$t")
                     .ThenBy("$.gsx$name.$t")
-                    .GroupBy(function (value) {       // Key selector
+                    .GroupBy(function (value) {           // Key selector
                             return value.gsx$category.$t;;
                         },
                         function (value) {                // Element selector
@@ -69,15 +90,15 @@
     }
 
     function applyTemplates(context) {
-        applyTemplate(context, "#SpiceContentTemplate", "#SpiceContentPlaceholder");
         applyTemplate(context, "#SideNavBarTemplate", "#SideNavBarPlaceholder");
         applyTemplate(context, "#TopNavBarTemplate", "#TopNavBarPlaceholder");
+        applyTemplate(context, "#SpiceContentTemplate", "#SpiceContentPlaceholder");
     }
 
     function applyTemplate(context, templateID, targetID) {
         var template = getTemplate("templates\\template.html", templateID);
         var output = template(context);
-        $(targetID).append(output);
+        $(targetID).html(output);
     }
 
     function getTemplate(path, selector) {

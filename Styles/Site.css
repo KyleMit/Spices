@@ -11,7 +11,11 @@ body {
 .content > div {
     float: left;
 }
-
+#loading {
+    margin: 50px;
+    text-align: center;
+    width: 200px;
+}
 /* ============ UTILITY CLASSES ===============*/
 .bold {
     font-weight: bold;
