@@ -132,7 +132,7 @@
         // when menu item clicked
         $("a[href^='#']").click(function () {
             // get href attribute
-            var idSelector = $(pageLink).attr('href');
+            var idSelector = $(this).attr('href');
             // scroll to position
             navigateToElement(idSelector);
         });
