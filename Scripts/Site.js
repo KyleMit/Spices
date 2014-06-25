@@ -18,7 +18,7 @@
     }
 
     function initializePage() {
-        var key = "0Ai98c4sbCLFEdHRTLWY3UEtTUzUwTVhveGN2bTJicHc";
+        var key = "139v7JMUkyJc0UzAyL_AUpIol-WU6uxKLsIyf1hA6Lnw";
         var url = "http://cors.io/spreadsheets.google.com/feeds/list/" + key + "/od6/public/values" +
                   "?alt=json&duration=0&noStore=true&callback=?";
 
