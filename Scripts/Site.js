@@ -19,7 +19,7 @@
 
     function initializePage() {
         var key = "0Ai98c4sbCLFEdHRTLWY3UEtTUzUwTVhveGN2bTJicHc";
-        var url = "http://spreadsheets.google.com/feeds/list/" + key + "/od6/public/values" +
+        var url = "https://spreadsheets.google.com/feeds/list/" + key + "/od6/public/values" +
                   "?alt=json-in-script&duration=0&noStore=true&callback=?";
 
         $.getJSON(url, function (data) {
