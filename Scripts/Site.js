@@ -9,12 +9,12 @@
     function tryInitializePage() {
         try {
             initializePage();
-            
+
         } catch (ex) {
             //notifyUserOfProblem
             document.getElementById('loading').style.display = 'none';
-            alert('An error occured while loading data from Google.');
-        } 
+            alert('An error occurred while loading data from Google.');
+        }
     }
 
     function initializePage() {
@@ -27,7 +27,7 @@
         });
 
     }
-    
+
     function tryCreatePage(data) {
         try {
             createPage(data);
@@ -35,7 +35,7 @@
         } catch (ex) {
             //notifyUserOfProblem
             document.getElementById('loading').style.display = 'none';
-            alert('An error occured while creating the page.');
+            alert('An error occurred while creating the page.');
         }
     }
 
@@ -83,7 +83,7 @@
                             };
                         })
                     .ToArray();
-        
+
         context.categories = grouped;
 
         return context;
@@ -126,7 +126,7 @@
             //always close child menus
             $openChildren.removeClass("in").addClass("collapse");
 
-            // if toggle clicked, open parent will automatically close, 
+            // if toggle clicked, open parent will automatically close,
             if (!toggleClicked) {
                 // otherwise close manually
                 $openParent.removeClass("in").addClass("collapse");
